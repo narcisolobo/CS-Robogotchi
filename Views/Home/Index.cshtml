@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Robogotchi";
+}
+
+<h1 class="text-center p-3">ROBOGOTCHI</h1>
+<partial name="StatusPartial" view-data="ViewData"/>
+
+@{
+  if (ViewBag.CurrentState == "happy"){
+    <partial name="HappyPartial"/>
+  }
+  else if (ViewBag.CurrentState == "mad"){
+    <partial name="MadPartial"/>
+  }
+  else if (ViewBag.CurrentState == "woohoo"){
+    <partial name="WoohooPartial"/>
+  }
+  else {
+    <partial name="BoohooPartial"/>
+  }
+}
+
+
+<partial name="ActivityPartial"/>
+
+@{
+  if (ViewBag.CurrentState == "boohoo" || ViewBag.CurrentState == "woohoo"){
+    <partial name="resetPartial"/>
+  }
+  else {
+    <partial name="ButtonsPartial"/>
+  }
+}
